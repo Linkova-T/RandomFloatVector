@@ -1,6 +1,4 @@
-﻿
-
-#include <iostream>
+﻿#include <iostream>
 #include <boost/align.hpp>
 #include <random>
 #include <vector>
@@ -14,13 +12,13 @@ double getRandomFloatingPointBetween_progressive(int min, int max) {
 	return dis(gen);
 };
 
-std::vector<float> vectorForRandom;
+
 
 bool comp(float a, float b) {
 	return abs(a) < abs(b);
 }
 
-void test_cases6() {
+void test_cases6(std::vector<float>&vectorForRandom) {
 	for (int count = 0; count < 10; ++count)
 	{
 		vectorForRandom.push_back(getRandomFloatingPointBetween_progressive(-2, 2));
@@ -30,7 +28,8 @@ void test_cases6() {
 
 int main()
 {
-	test_cases6();
+	std::vector<float> vectorForRandom;
+	test_cases6(vectorForRandom);
 	sort(vectorForRandom.begin(), vectorForRandom.end(),comp);
 	for (int i = 0; i < 10; i++)
 	{
